@@ -71,6 +71,10 @@
       Quagga.onProcessed(this.onProcessed ? this.onProcessed : this._onProcessed);
     },
     methods: {
+      reInit: function (callback) {
+        Quagga.stop();
+        callback();      
+      },
       _onProcessed: function (result) {
         let drawingCtx = Quagga.canvas.ctx.overlay,
           drawingCanvas = Quagga.canvas.dom.overlay;
