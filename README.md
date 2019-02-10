@@ -114,7 +114,7 @@ default:
 </template>
 
 <script>
-import { QuaggaScanner } from 'vue-quaggajs'
+import { QuaggaScanner } from 'vue-cc-quaggajs'
 export default {
   name: 'VueBarcodeTest',
   data () {
