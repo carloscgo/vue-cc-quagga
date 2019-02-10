@@ -1,5 +1,5 @@
 {
-  "name": "vue-cc-quaggajs",
+  "name": "@carloscgo/vue-cc-quaggajs",
   "description": "A Vue.js component, accessing the device camera and allowing users to read barcodes, within the browser",
   "main": "dist/vue-cc-quagga.js",
   "cdn": "dist/vue-cc-quagga.min.js",
@@ -49,5 +49,6 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.2"
-  }
+  },
+  "homepage": "https://github.com/carloscgo/vue-cc-quagga#readme"
 }
