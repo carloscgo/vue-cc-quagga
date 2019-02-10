@@ -7,16 +7,16 @@
 ## npm
 
 ``` bash
-npm i vue-quaggajs
+npm i vue-cc-quaggajs
 ```
 
 ```vue
 <template>
-  <quagga-scanner></quagga-scanner>
+  <quagga-scanner ref="scanner"></quagga-scanner>
 </template>
 
 <script>
-import { QuaggaScanner } from 'vue-quaggajs';
+import { QuaggaScanner } from 'vue-cc-quaggajs';
 
 export default {
   //...
@@ -27,7 +27,16 @@ export default {
 }
 </script>
 ```
+# Usage
 
+### `reInit` : function(callback)
+
+```js
+function (callback) {
+  Quagga.stop();
+  callback();
+}
+```
 
 # Usage
 
