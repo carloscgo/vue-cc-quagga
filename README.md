@@ -1,4 +1,4 @@
-# vue-quaggajs
+# vue-cc-quaggajs
 
 [quaggajs](https://serratus.github.io/quaggaJS/) 's wrapper for Vue.js
 
