@@ -29,16 +29,42 @@ export default {
 ```
 # Usage
 
-### `reInit` : function(callback)
+### `init` : function()
 
 ```js
-function (callback) {
-  Quagga.stop();
-  callback();
+function () {
+  Quagga.init(this.quaggaState, function (err) {
+    if (err) {
+      return console.log(err);
+    }
+
+    Quagga.start();
+  });
+
+  Quagga.onDetected(this.onDetected ? this.onDetected : this._onDetected);
+  Quagga.onProcessed(this.onProcessed ? this.onProcessed : this._onProcessed);
 }
 ```
 
-# Usage
+### `reInit` : function()
+
+```js
+function () {
+  Quagga.stop();
+
+  this.init();
+}
+```
+
+### `getImage` : function()
+
+```js
+function () {
+  const canvas = Quagga.canvas.dom.image;
+
+  return canvas.toDataURL();
+}
+```
 
 ### `onDetected` : function(result)
 
@@ -122,8 +148,7 @@ export default {
       readerSize: {
         width: 640,
         height: 480
-      },
-      detecteds: []
+      }
     }
   },
   components: {

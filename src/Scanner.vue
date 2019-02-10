@@ -32,7 +32,7 @@
         }
       }
     },
-    data: function () {
+    data () {
       return {
         quaggaState: {
           inputStream: {
@@ -48,7 +48,7 @@
             patchSize: 'medium',
             halfSample: true
           },
-          numOfWorkers: 2,
+          numOfWorkers: 4,
           frequency: 10,
           decoder: {
             readers: [{
@@ -60,22 +60,33 @@
         },
       }
     },
-    mounted: function () {
-      Quagga.init(this.quaggaState, function (err) {
-        if (err) {
-          return console.log(err);
-        }
-        Quagga.start();
-      });
-      Quagga.onDetected(this.onDetected ? this.onDetected : this._onDetected);
-      Quagga.onProcessed(this.onProcessed ? this.onProcessed : this._onProcessed);
+    mounted () {
+      this.init();
     },
     methods: {
-      reInit: function (callback) {
-        Quagga.stop();
-        callback();      
+      init () {
+        Quagga.init(this.quaggaState, function (err) {
+          if (err) {
+            return console.log(err);
+          }
+
+          Quagga.start();
+        });
+
+        Quagga.onDetected(this.onDetected ? this.onDetected : this._onDetected);
+        Quagga.onProcessed(this.onProcessed ? this.onProcessed : this._onProcessed);
       },
-      _onProcessed: function (result) {
+      reInit () {
+        Quagga.stop();
+
+        this.init();
+      },
+      getImage () {
+        const canvas = Quagga.canvas.dom.image;
+
+        return canvas.toDataURL();
+      },
+      _onProcessed (result) {
         let drawingCtx = Quagga.canvas.ctx.overlay,
           drawingCanvas = Quagga.canvas.dom.overlay;
 
@@ -88,6 +99,7 @@
               Quagga.ImageDebug.drawPath(box, {x: 0, y: 1}, drawingCtx, {color: "green", lineWidth: 2});
             });
           }
+
           if (result.box) {
             Quagga.ImageDebug.drawPath(result.box, {x: 0, y: 1}, drawingCtx, {color: "#00F", lineWidth: 2});
           }
@@ -97,21 +109,21 @@
           }
         }
       },
-      _onDetected: function (result) {
+      _onDetected (result) {
         console.log('detected: ', result);
       },
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss">
   .viewport {
     position: relative;
-  }
 
-  .viewport canvas, .viewport video {
-    position: absolute;
-    left: 0;
-    top: 0;
+    canvas, video {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   }
 </style>

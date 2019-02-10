@@ -1,10 +1,10 @@
 {
-  "name": "vue-quaggajs",
+  "name": "vue-cc-quaggajs",
   "description": "A Vue.js component, accessing the device camera and allowing users to read barcodes, within the browser",
-  "main": "dist/vue-quagga.js",
-  "cdn": "dist/vue-quagga.min.js",
-  "version": "1.0.5",
-  "author": "Shintaro Tanaka <sin_tanaka@jsl.co.jp>",
+  "main": "dist/vue-cc-quagga.js",
+  "cdn": "dist/vue-cc-quagga.min.js",
+  "version": "2.0.0",
+  "author": "Carlos Camacho <caroscgo123@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sin-tanaka/vue-quagga.git"
+    "url": "git+https://github.com/carloscgo/vue-cc-quagga.git"
   },
   "bugs": {
-    "url": "https://github.com/sin-tanaka/vue-quagga/issues"
+    "url": "https://github.com/carloscgo/vue-cc-quagga/issues"
   },
   "dependencies": {
     "quagga": "^0.12.1",
@@ -41,6 +41,9 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "node-sass": "^4.11.0",
+    "sass": "^1.17.0",
+    "sass-loader": "^7.1.0",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
