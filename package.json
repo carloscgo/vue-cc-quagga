@@ -1,9 +1,9 @@
 {
-  "name": "@carloscgo/vue-cc-quaggajs",
+  "name": "vue-cc-quaggajs",
   "description": "A Vue.js component, accessing the device camera and allowing users to read barcodes, within the browser",
-  "main": "dist/vue-cc-quagga.js",
-  "cdn": "dist/vue-cc-quagga.min.js",
-  "version": "2.0.0",
+  "main": "dist/vue-quagga.js",
+  "cdn": "dist/vue-quagga.min.js",
+  "version": "2.0.1",
   "author": "Carlos Camacho <caroscgo123@gmail.com>",
   "license": "MIT",
   "scripts": {
