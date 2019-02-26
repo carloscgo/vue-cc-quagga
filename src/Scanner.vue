@@ -18,8 +18,11 @@
         type: Function,
       },
       readerType: {
-        type: String,
-        default: 'code_128_reader',
+        type: Array,
+        default: [{
+          format: 'code_128_reader',
+          config: {}
+        }]
       },
       readerSize: {
         width : {
@@ -51,10 +54,7 @@
           numOfWorkers: 4,
           frequency: 10,
           decoder: {
-            readers: [{
-              format: this.readerType,
-              config: {}
-            }]
+            readers: this.readerType
           },
           locate: true
         },

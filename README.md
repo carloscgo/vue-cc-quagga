@@ -109,13 +109,16 @@ function (result) {
 },
 ```
 
-### readerType: String
+### readerType: Array
 
 Set reading barcode type.
 
 Reference: [https://github.com/serratus/quaggaJS#decoder](https://github.com/serratus/quaggaJS#decoder)
 
-default: `'code_128_reader'`
+default: `[{
+          format: 'code_128_reader',
+          config: {}
+        }]`
 
 ### readerSize: Object {width: Number, height: Number}
 
